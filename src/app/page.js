@@ -1,4 +1,5 @@
 export default function Home() {
+  const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "";
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900">
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-6 py-16 sm:px-10">
@@ -63,6 +64,12 @@ export default function Home() {
 
         <footer className="flex flex-col gap-3 text-sm text-zinc-500">
           <p>문서 상세는 리포지토리의 `docs/erp-phase1.md`를 참고하세요.</p>
+          <p>
+            API Base:{" "}
+            <span className="font-medium text-zinc-700">
+              {apiBase || "NOT_SET"}
+            </span>
+          </p>
         </footer>
       </main>
     </div>
