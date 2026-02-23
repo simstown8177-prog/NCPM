@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 
+from app.routers.erp import router as erp_router
 from backend.erp_core import (
     add_bom_line,
     calc_rop,
@@ -23,6 +24,7 @@ from backend.erp_core import (
 )
 
 app = FastAPI(title="ERP Phase 1 (GOGIJI)")
+app.include_router(erp_router)
 
 
 class PurchaseIn(BaseModel):
